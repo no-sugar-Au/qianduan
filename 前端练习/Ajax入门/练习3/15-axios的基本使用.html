@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/axios.js"></script>
+</head>
+<body>
+    <button id="btn1">发起get请求</button>
+    <button id="btn2">发起post请求</button>
+    <button id="btn3">直接使用axios发起get请求</button>
+    <button id="btn4">直接使用axios发起post请求</button>
+    <script>
+        // 发起get请求
+        document.querySelector('#btn1').addEventListener('click',function(){
+            var url='http://www.liulongbin.top:3006/api/get';
+            var paramsObj={name:'bronya',age:20};
+            axios.get(url,{params:paramsObj}).then(function (res){
+                console.log(res);
+            })
+        })
+
+        // 发起post请求
+        document.querySelector('#btn2').addEventListener('click',function(){
+            var url='http://www.liulongbin.top:3006/api/post';
+            var dataObj={address:'天命',location:'圣芙蕾雅'};
+            axios.post(url,dataObj).then(function (res){
+                console.log(res.data)
+            })
+        })
+
+        // 直接使用axios发起get请求
+        document.querySelector('#btn3').addEventListener('click',function(){
+            var url='http://www.liulongbin.top:3006/api/get';
+            var paramsData={name:'上仙',age:50000};
+            axios({
+                method:'get',
+                url:url,
+                params:paramsData
+            }).then(function(res){
+                console.log(res.data)
+            })
+        })
+
+        // 直接使用axios发起post请求
+        document.querySelector('#btn4').addEventListener('click',function(){
+            axios({
+                method:'post',
+                url: 'http://www.liulongbin.top:3006/api/post',
+                data:{
+                    name:'雷电芽衣',
+                    age:30,
+                    gender:'女'
+                }
+                }).then(function (res) {
+                console.log(res.data)
+            })
+        })
+
+    </script>
+</body>
+</html>

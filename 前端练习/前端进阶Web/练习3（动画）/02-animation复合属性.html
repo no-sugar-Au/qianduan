@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复合属性</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+            /* animation: change 1s linear;匀速 */
+            /* animation: change 1s steps(3);分步骤 */
+            /* animation: change 1s steps(3) 1s 3; */
+            /* 第二个1s是延时，3是循环次数 */
+            /* animation: change 3s infinite alternate; */
+            /* infinite是无限循环 ，alternate是反向动画*/
+            animation: change 10s forwards;
+            /* backwards是动画停留在初始状态，forwards是动画停留在最终状态 */
+        }
+        .box:hover{
+            animation-play-state: paused;
+        }
+        @keyframes change{
+            from{
+                width: 200px;
+            }
+            to{
+                width: 600px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

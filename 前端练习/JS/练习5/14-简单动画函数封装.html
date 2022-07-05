@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            left: 0;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <button>点击</button>
+    <div></div>
+
+    <script>
+        
+        function animate(obj,target){
+            clearInterval(obj.timer);//清除上一个定时器，只保留一个定时器执行 
+            obj.timer=setInterval(function(){
+                if(obj.offsetLeft>=target){
+                    clearInterval(timer);
+                }
+                obj.style.left=obj.offsetLeft+1+'px';
+            },30);
+        }
+        var div=document.querySelector('div');
+        var btn=document.querySelector('button');        
+        btn.addEventListener('click',function(){
+            animate(div,300);
+        })
+    </script>
+</body>
+</html>
